@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Price Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+            color: #333;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            font-weight: bold;
+        }
+        .price {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #1a73e8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>جستجوی قیمت</h2>
+        <input type="text" id="codeInput" placeholder="کد کالا را وارد کنید">
+        <button onclick="searchPrice()">جستجو</button>
+        <div class="price" id="priceDisplay"></div>
+    </div>
+
+    <script>
+        const prices = {
+            "1001": "250,000 تومان",
+            "1002": "180,000 تومان",
+            "1003": "320,000 تومان",
+            "A01": "150,000 تومان",
+            "X99": "990,000 تومان"
+        };
+
+        function searchPrice() {
+            const code = document.getElementById("codeInput").value.trim();
+            const display = document.getElementById("priceDisplay");
+            if (prices[code]) {
+                display.innerText = "قیمت: " + prices[code];
+            } else {
+                display.innerText = "کدی یافت نشد.";
+            }
+        }
+    </script>
+</body>
+</html>
